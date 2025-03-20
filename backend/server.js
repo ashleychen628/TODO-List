@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 connectDB();
 
-// app.use("/api", require("./routes/authRoutes"));
-// app.use("/api", require("./routes/taskRoutes"));
+app.use("/api", require("./routes/userRoutes"));
+app.use("/api", require("./routes/taskRoutes"));
 
-app.listen(process.env.PORT || 5000, () => console.log("Server is successfully running."));
+app.listen(process.env.PORT || 8000, () => console.log("Server is successfully running."));
