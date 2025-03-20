@@ -1,4 +1,4 @@
-const Task = require("../models/Task");
+const Task = require("../schemas/Task");
 
 exports.getTasks = async (req, res) => {
     try {
@@ -22,9 +22,10 @@ exports.addTask = async (req, res) => {
 
 exports.updateTask = async (req, res) => {
     try {
+      const { title, completed } = req.body;  
         const updatedTask = await Task.findOneAndUpdate(
             { _id: req.params.id, userId: req.userId },
-            req.body,
+            { title, completed },
             { new: true }
         );
         res.json(updatedTask);
