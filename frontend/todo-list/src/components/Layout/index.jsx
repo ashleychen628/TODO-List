@@ -15,7 +15,6 @@ const Layout = ({ children }) => {
   };
 
   const handleAddNewTodo = (newTodo) => {
-    // This will be handled by the ToDo component through a callback
     window.dispatchEvent(new CustomEvent('todoAdded', { detail: newTodo }));
   };
 
