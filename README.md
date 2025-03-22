@@ -1,7 +1,7 @@
 # TODO-List
 
 ## Project Setup and Running the App
-- [Frontend README](./frontend/README.md)
+- [Frontend README](./frontend/todo-list/README.md)
 - [Backend README](./backend/README.md)
 
 ## Tech Stack
