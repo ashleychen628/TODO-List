@@ -6,6 +6,7 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(express.json());
+
 const connectDB = async () => {
   try {
       await mongoose.connect(process.env.MONGO_URI);

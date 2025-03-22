@@ -1,8 +1,6 @@
 # TODO-List
 
 ## Project Structure
-## About some Folders
-
 ```
 |-- backend
     |-- config
