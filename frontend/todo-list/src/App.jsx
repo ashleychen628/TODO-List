@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import ToDoPage from "./pages/ToDoPage";
 import Register from "./components/Register";
 import LogIn from "./components/LogIn";
+import Layout from "./components/Layout";
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -12,7 +13,7 @@ function App() {
   const closeLoginDialog = () => setIsLoginOpen(false);
 
   return (
-    <>
+    <Layout>
       <Navbar openLogin={isLoginOpen} handleOpenLogin={openLoginDialog} handleCloseLogin={closeLoginDialog} />
       <Routes>
         <Route path="/" element={<ToDoPage />} />
@@ -23,7 +24,7 @@ function App() {
         <Route path="/LogIn" element={<LogIn />} />
       </Routes>
       <LogIn open={isLoginOpen} handleClose={closeLoginDialog} />
-    </>
+    </Layout>
   );
 }
 
