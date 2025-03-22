@@ -7,9 +7,21 @@ const connectDB = require("./config/db");
 const app = express();
 const cors = require("cors");
 
+const allowedOrigins = [
+  /^http:\/\//, // for local dev
+  "https://do-it-today-app.netlify.app",
+  /^https:\/\/[\w-]+--do-it-today-app\.netlify\.app$/ 
+];
+
 app.use(cors({
-  origin: /^http:\/\//,
-  credentials: true
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.some((o) => typeof o === "string" ? o === origin : o.test(origin))) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
 }));
 
 app.use(express.json());
