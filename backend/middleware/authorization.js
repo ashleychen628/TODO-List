@@ -1,5 +1,17 @@
 const jwt = require("jsonwebtoken");
 
+/**
+ * Middleware to authenticate users using JWT.
+ * 
+ * This middleware checks the Authorization header for a valid JWT token,
+ * verifies it using the server's secret, and attaches the user ID to the request object.
+ * 
+ * @middleware
+ * @access Private (Protected routes only)
+ * @header {string} Authorization - Format: "Bearer <token>"
+ * @returns {Object} req.userId - The decoded user ID from the token
+ * 
+ */
 module.exports = (req, res, next) => {
     const token = req.headers.authorization?.split(" ")[1];
 

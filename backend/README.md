@@ -5,11 +5,8 @@
 $ pwd
 .../TODO-List/backend
 
-// 1. Install project dependencies
+// Install project dependencies
 $ npm install
-
-// 2. Start the development server
-$ npm run dev
 ```
 
 ## Run the Backend Locally
@@ -17,12 +14,21 @@ $ npm run dev
 $ pwd
 .../TODO-List/backend
 
-// 1. Install project dependencies
-$ npm install
-
-// 2. Start the development server
+// Start the development server
 $ npm run dev
 ```
+
+## API Endpoints
+
+### User
+- `POST /api/register` - Register new user
+- `POST /api/login` - Login user and return JWT
+
+### Tasks
+- `GET /api/tasks` - Get all tasks for logged-in user
+- `POST /api/tasks` - Create new task
+- `PUT /api/tasks/:id` - Update task
+- `DELETE /api/tasks/:id` - Delete task
 
 ## Backend Structure
 ```

@@ -5,11 +5,8 @@
 $ pwd
 .../TODO-List/frontend
 
-// 1. Install project dependencies
+// Install project dependencies
 $ npm install
-
-// 2. Start the development server
-$ npm run dev
 ```
 
 ## Run the Frontend Locally
@@ -17,10 +14,7 @@ $ npm run dev
 $ pwd
 .../TODO-List/frontend
 
-// 1. Install project dependencies
-$ npm install
-
-// 2. Start the development server
+// Start the development server
 $ npm run dev
 ```
 
@@ -39,11 +33,9 @@ $ npm run dev
     |-- confiv
         |-- apiConfig.js
     |-- pages
-        |-- Home.jsx
         |--ToDoPage.jsx
     |-- App.css
     |-- App.jsx
-    |-- home.jsx
     |-- index.css
     |-- main.jsx
 ```

@@ -2,6 +2,15 @@ const User = require("../schemas/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+/**
+ * Register a new user.
+ * @route POST /api/register
+ * @access Public
+ * @body {string} name - Full name of the user
+ * @body {string} email - Email address
+ * @body {string} password - Plain text password
+ * @returns {Object} Success message or error
+ */
 exports.register = async (req, res) => {
     try {
         const { name, email, password } = req.body;
@@ -21,6 +30,14 @@ exports.register = async (req, res) => {
     }
 };
 
+/**
+ * Log in an existing user.
+ * @route POST /api/login
+ * @access Public
+ * @body {string} email - Registered email
+ * @body {string} password - Plain text password
+ * @returns {Object} JWT token and user info or error
+ */
 exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
