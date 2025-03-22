@@ -1,52 +1,58 @@
 import React from "react";
-import LogIn from "../LogIn";
 import { useNavigate } from "react-router-dom";
 import './navbar_styles.css';
+import { useAuth } from '../AuthProvider'; 
 
-const Navbar = () => {
-    const [open, setOpen] = React.useState(false);
+const Navbar = ({ handleOpenLogin }) => {
     const navigate = useNavigate();
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
-    };
+    const auth = useAuth();
 
     const handleLogout = () => {
-        // navigate("/login"); 
-        // TODO: change this to log out
-        console.log("user wants to log out")
+        auth.logout();             
+        navigate('/'); 
+        console.log("User logged out");
     };
-
+    
     return (
         <div className="nav">
             <div className="bars"></div>
             <div className="nav-menu">
                 <a href="/" className="nav-link">
-                    Dashboard
+                    Today
                 </a>
                 <a href="/RouteDisplay" className="nav-link">
-                    Search Route
+                    Scheduled
                 </a>
                 <a href="/TrackFriend" className="nav-link">
-                    Track Friends
+                    All Tasks
                 </a>
-                <a href="/Annotations" className="nav-link">
+                {/* <a href="/Annotations" className="nav-link">
                     Favorite Annotations
-                </a>
+                </a> */}
             </div>
-            <div className="nav-btn">
-            <button className="nav-btn-link" onClick={handleClickOpen}>
-                    Log In / Sign up
+            {/* <div className="nav-btn">
+                <button className="nav-btn-link" onClick={handleOpenLogin}>
+                        Log In / Sign up
                 </button>
-                <LogIn open={open} handleClose={handleClose} />
+                
                 <button className="logout-btn-link" onClick={handleLogout}>
                     Log Out
                 </button>
-            </div>
+            </div> */}
+            <div className="nav-btn">
+            {auth.userName ? (
+              <>
+                <span className="nav-username">👤 {auth.userName}</span>
+                <button className="logout-btn-link" onClick={handleLogout}>
+                  Log Out
+                </button>
+              </>
+            ) : (
+              <button className="nav-btn-link" onClick={handleOpenLogin}>
+                Log In / Sign Up
+              </button>
+            )}
+          </div>
         </div>
     );
 };

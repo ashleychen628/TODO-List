@@ -5,6 +5,13 @@ const express = require("express");
 const connectDB = require("./config/db");
 
 const app = express();
+const cors = require("cors");
+
+app.use(cors({
+  origin: /^http:\/\//,
+  credentials: true
+}));
+
 app.use(express.json());
 connectDB();
 

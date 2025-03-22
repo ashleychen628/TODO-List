@@ -12,7 +12,8 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from 'react-router-dom';
-import globalVal from "../../globalVal";
+import API_ENDPOINTS from "../../config/apiConfig";
+import { useAuth } from '../AuthProvider'; 
 
 export default function LogIn(props) {
     const [email, setEmail] = useState('');
@@ -20,13 +21,15 @@ export default function LogIn(props) {
     const [showPassword, setShowPassword] = useState(false);
     const [errorLogIn, setErrorLogIn] = useState(false);
     const navigate = useNavigate();
+    const auth = useAuth();
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = (event) => event.preventDefault();
 
     const doLogin = async (email, password) => {
         try {
-            const response = await fetch(globalVal.userProfileUrl + '/login', {
+            console.log(API_ENDPOINTS.LOGIN)
+            const response = await fetch(API_ENDPOINTS.LOGIN, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
@@ -37,13 +40,11 @@ export default function LogIn(props) {
             }
 
             const data = await response.json();
-            const token = data.access_token;
+            const token = data.token;
+            const userName = data.name; 
+            auth.login(token, userName); 
 
-            // Save the JWT token securely
-            localStorage.setItem('authToken', token);
-
-            // Optionally, redirect the user to the desired page
-            navigate('/dashboard'); // Adjust the path as needed
+            navigate('/'); 
 
             // Reset form state
             setEmail('');
@@ -119,7 +120,7 @@ export default function LogIn(props) {
                 </Button>
             </DialogActions>
             <DialogActions>
-                <Button href="/signup">Sign Up Now!</Button>
+                <Button href="/register">Sign Up Now!</Button>
             </DialogActions>
         </Dialog>
     );

@@ -4,7 +4,7 @@ import { Typography, Box } from '@mui/material';
 
 const Home = () => {
   return (
-    <h>Hi</h>
+    <h1>Hi</h1>
     
   );
 };
