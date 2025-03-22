@@ -18,6 +18,10 @@ $ pwd
 $ npm run dev
 ```
 
+## Cloud Deployment to Netlify
+This project's frontend has been deployed to Netlify, click:
+https://do-it-today-app.netlify.app/
+
 ## Frontend Structure
 ```
 |-- frontend/todo-list/src

@@ -17,6 +17,9 @@ $ pwd
 // Start the development server
 $ npm run dev
 ```
+## Cloud Deployment to Heroku
+This project's backend has been deployed to Heroku, click:
+https://do-it-today-8bdcaa5cf8e8.herokuapp.com
 
 ## API Endpoints
 
