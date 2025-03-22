@@ -3,7 +3,7 @@
 ## Frontend Initial Set Up
 ```
 $ pwd
-.../TODO-List/frontend
+.../TODO-List/frontend/todo-list
 
 // Install project dependencies
 $ npm install
@@ -12,7 +12,7 @@ $ npm install
 ## Run the Frontend Locally
 ```
 $ pwd
-.../TODO-List/frontend
+.../TODO-List/frontend/todo-list
 
 // Start the development server
 $ npm run dev
