@@ -18,27 +18,15 @@ const Navbar = ({ handleOpenLogin }) => {
             <div className="bars"></div>
             <div className="nav-menu">
                 <a href="/" className="nav-link">
-                    Today
+                    TODO list
                 </a>
-                <a href="/RouteDisplay" className="nav-link">
+                {/* <a href="/Scheduled" className="nav-link">
                     Scheduled
                 </a>
-                <a href="/TrackFriend" className="nav-link">
+                <a href="/All Tasks" className="nav-link">
                     All Tasks
-                </a>
-                {/* <a href="/Annotations" className="nav-link">
-                    Favorite Annotations
                 </a> */}
             </div>
-            {/* <div className="nav-btn">
-                <button className="nav-btn-link" onClick={handleOpenLogin}>
-                        Log In / Sign up
-                </button>
-                
-                <button className="logout-btn-link" onClick={handleLogout}>
-                    Log Out
-                </button>
-            </div> */}
             <div className="nav-btn">
             {auth.userName ? (
               <>
